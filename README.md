@@ -44,12 +44,6 @@ Tidak perlu edit file YAML, tidak perlu konfigurasi manual. Semua digenerate oto
 | Kali Linux Purple / Rolling | ✅ |
 | Debian 11 / 12 | ✅ |
 | Ubuntu 20 / 22 / 24 | ✅ |
-| Linux Mint | ✅ |
-| CentOS / RHEL / Rocky / AlmaLinux | ✅ |
-| Fedora | ✅ |
-| openSUSE Leap / Tumbleweed | ✅ |
-| Arch Linux / Manjaro | ✅ |
-| Raspberry Pi OS (ARM32/ARM64) | ✅ |
 
 ---
 

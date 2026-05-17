@@ -1,6 +1,6 @@
 # ⚡ LightMon
 # di karenakan ini untuk kebutuhan bersama,jadi bebas di modifikasi toh ini ada bagian di mana di bantu AI.⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀
+# di unzip dulu ya!⠀⠀⠀⠀⠀⠀⠀⠀
 # Stack monitoring **Grafana + Prometheus + Loki + Alertmanager** dengan Setup Wizard berbasis web.
 
 ## Platform

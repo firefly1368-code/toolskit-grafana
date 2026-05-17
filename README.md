@@ -145,7 +145,7 @@ Pull request dan issue sangat disambut! Proyek ini open source di bawah lisensi 
 
 ## 📄 Lisensi
 
-[MIT License](LICENSE) © 2026 Alyaa
+[MIT License](LICENSE) © 2026 Riski Akbar
 
 ---
 

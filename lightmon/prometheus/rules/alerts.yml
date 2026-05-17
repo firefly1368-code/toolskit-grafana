@@ -1,0 +1,48 @@
+groups:
+  - name: system
+    interval: 30s
+    rules:
+      - alert: HostDown
+        expr: up == 0
+        for: 1m
+        labels:
+          severity: critical
+        annotations:
+          summary: "Host {{ $labels.instance }} down"
+          description: "{{ $labels.instance }} tidak bisa di-scrape lebih dari 1 menit."
+
+      - alert: HighCpuUsage
+        expr: 100 - (avg by(instance) (irate(node_cpu_seconds_total{mode="idle"}[5m])) * 100) > 85
+        for: 5m
+        labels:
+          severity: warning
+        annotations:
+          summary: "CPU tinggi di {{ $labels.instance }}"
+          description: "CPU usage {{ $value | printf \"%.1f\" }}% selama 5 menit."
+
+      - alert: HighMemoryUsage
+        expr: (1 - (node_memory_MemAvailable_bytes / node_memory_MemTotal_bytes)) * 100 > 85
+        for: 5m
+        labels:
+          severity: warning
+        annotations:
+          summary: "Memory tinggi di {{ $labels.instance }}"
+          description: "Memory usage {{ $value | printf \"%.1f\" }}%."
+
+      - alert: DiskSpaceLow
+        expr: (1 - (node_filesystem_avail_bytes{fstype!="tmpfs",mountpoint="/"} / node_filesystem_size_bytes{fstype!="tmpfs",mountpoint="/"})) * 100 > 85
+        for: 5m
+        labels:
+          severity: warning
+        annotations:
+          summary: "Disk hampir penuh di {{ $labels.instance }}"
+          description: "Disk usage {{ $value | printf \"%.1f\" }}%."
+
+      - alert: DiskSpaceCritical
+        expr: (1 - (node_filesystem_avail_bytes{fstype!="tmpfs",mountpoint="/"} / node_filesystem_size_bytes{fstype!="tmpfs",mountpoint="/"})) * 100 > 95
+        for: 1m
+        labels:
+          severity: critical
+        annotations:
+          summary: "Disk kritis di {{ $labels.instance }}"
+          description: "Disk usage {{ $value | printf \"%.1f\" }}% - segera bersihkan!"
